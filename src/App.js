@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 const App = () => (
   <div>
-    <p>react here!</p>
+    <p>react here</p>
   </div>
 );
 
