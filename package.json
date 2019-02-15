@@ -1,7 +1,7 @@
 {
   "name": "webpack4",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "repository": "git@github.com:kde-space/webpack4.git",
   "author": "koji.kobayashi <kojikobayashi1840@gmail.com>",
   "license": "MIT",
