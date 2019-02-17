@@ -12,12 +12,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Webpack入門 vol.3',
       filename: 'webpack.html',
       template: './src/index.html',
       description: 'Webpack入門 vol.3 についてのページです'
     }),
-    new CleanWebpackPlugin(['dist']),
   ],
 };
