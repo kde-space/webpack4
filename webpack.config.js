@@ -1,23 +1,38 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: {
     app: './src/index.js',
     print: './src/print.js',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader',
+        }),
+      },
+    ]
+  },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
       title: 'Webpack入門 vol.3',
-      filename: 'webpack.html',
+      // filename: 'webpack.html',
       template: './src/index.html',
       description: 'Webpack入門 vol.3 についてのページです'
     }),
+    new CleanWebpackPlugin(['dist']),
   ],
 };
