@@ -1,5 +1,9 @@
+body {
+  background-color: #fff;
+}
+
 .hello {
   font-style: italic;
-  color: #fff;
+  color: #ff0;
   background-color: #e00;
 }

@@ -2,35 +2,36 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  mode: 'none',
   entry: {
     app: './src/index.js',
-    print: './src/print.js',
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
   },
   devtool: 'eval-source-map',
   devServer: {
     contentBase: './dist',
-    publicPath: '/assets/',
+    hot: true,
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader',
-        }),
+        use: ['style-loader', 'css-loader']
+        // use: ExtractTextPlugin.extract({
+        //   fallback: 'style-loader',
+        //   use: 'css-loader',
+        // }),
       },
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
       title: 'Webpack入門 vol.3',
@@ -38,6 +39,5 @@ module.exports = {
       template: './src/index.html',
       description: 'Webpack入門 vol.3 についてのページです'
     }),
-    new CleanWebpackPlugin(['dist']),
   ],
 };
