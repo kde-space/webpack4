@@ -8,7 +8,7 @@ function component() {
   const btn = document.createElement('button');
 
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  btn.innerHTML = 'Click memememe';
+  btn.innerHTML = 'Click Me!!!!!';
   btn.onclick = printMe;
   element.appendChild(btn);
   element.classList.add('hello');
@@ -19,7 +19,7 @@ document.body.appendChild(component());
 
 if (module.hot) {
   module.hot.accept('./print.js', function() {
-    console.log('print.jsが更新されました');
+    console.log('print.jsが更新されました!!!');
     printMe();
   })
 }

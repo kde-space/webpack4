@@ -30,7 +30,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
@@ -39,5 +38,6 @@ module.exports = {
       template: './src/index.html',
       description: 'Webpack入門 vol.3 についてのページです'
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };
