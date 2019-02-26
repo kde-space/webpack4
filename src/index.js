@@ -1,25 +1,15 @@
-import _ from 'lodash';
-import printMe from './print.js';
-import './style.css';
-import './hoge.css';
+import { cube } from './math.js';
+import { foo } from './expo';
 
 function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+  var element = document.createElement('pre');
+  console.log(foo);
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  btn.innerHTML = 'Click Me!!!!!';
-  btn.onclick = printMe;
-  element.appendChild(btn);
-  element.classList.add('hello');
+  element.innerHTML = [
+    'Hello webpack!',
+    '5 cubed is equal to ' + cube(5)
+  ].join('\n\n');
   return element;
 }
 
 document.body.appendChild(component());
-
-if (module.hot) {
-  module.hot.accept('./print.js', function() {
-    console.log('print.jsが更新されました!!!');
-    printMe();
-  })
-}

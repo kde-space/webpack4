@@ -1,43 +1,22 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: {
-    app: './src/index.js',
-  },
+  mode: 'production',
+  entry: './src/index.js',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  devtool: 'eval-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true,
+  optimization: {
+    usedExports: true,
+    minimizer: [new UglifyJsPlugin({
+      uglifyOptions: 
+        { 
+          compress: {
+            pure_funcs: ['Math.random', 'Promise.resolve']
+           } 
+        } 
+      })]
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-        // use: ExtractTextPlugin.extract({
-        //   fallback: 'style-loader',
-        //   use: 'css-loader',
-        // }),
-      },
-    ]
-  },
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new ExtractTextPlugin('[name].css'),
-    new HtmlWebpackPlugin({
-      title: 'Webpack入門 vol.3',
-      // filename: 'webpack.html',
-      template: './src/index.html',
-      description: 'Webpack入門 vol.3 についてのページです'
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
 };
