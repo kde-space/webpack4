@@ -7,11 +7,8 @@
   "author": "koji.kobayashi <kojikobayashi1840@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
-    "hot": "webpack-dev-server --inline --hot --open",
-    "server": "node server.js"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js --define process.env.NODE_ENV=production"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^1.0.1",
