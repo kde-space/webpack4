@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     filename: '[name].[contenthash].js',
-    chunkFilename: '[name].bundle.js',
+    // chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
