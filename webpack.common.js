@@ -1,6 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -16,6 +17,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Caching'
     }),
+    new webpack.HashedModuleIdsPlugin(),
   ],
   optimization: {
     runtimeChunk: 'single',
