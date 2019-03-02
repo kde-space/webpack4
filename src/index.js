@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import print from './print';
+// import print from './print';
 
 function component() {
   const element = document.createElement('div');
@@ -11,7 +11,7 @@ function component() {
   element.appendChild(br);
   element.appendChild(button);
 
-  button.onclick = print.bind(null, 'Hello, webpack!!');
+  // button.onclick = print.bind(null, 'Hello, webpack!!');
 
   return element;
 }
