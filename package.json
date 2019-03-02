@@ -8,11 +8,13 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "cross-env NODE_ENV=hoge ENV=fuga webpack --config webpack.prod.js"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.121",
+    "@types/node": "^11.10.4",
     "clean-webpack-plugin": "^1.0.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "csv-loader": "^3.0.2",
     "express": "^4.16.4",

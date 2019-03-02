@@ -10,6 +10,9 @@ function component(): HTMLElement {
   img.width = 200;
   element.appendChild(img);
   console.log(img);
+  console.log('====================================');
+  console.log(process.env.ENV);
+  console.log('====================================');
   return element;
 }
 

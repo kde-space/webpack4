@@ -2,6 +2,11 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+console.log('====================================');
+console.log(process.env.NODE_ENV);
+console.log(process.env.ENV);
+console.log('====================================');
+
 module.exports = {
   entry: {
     entry: './src/index.ts',
